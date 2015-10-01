@@ -64,15 +64,17 @@ class MenuController
     def view_by_num
         system "clear"
         print "Enter your entry number: "
-        selection = gets.to_i
-        @address_book.fetch(selection) do |x|
-            if x = nil
-              return "No entry found"
-            else
-              puts x.to_s
-            end
-            view_by_num
+        selection = gets.chomp.to_i
+        
+        if selection <= @address_book.entries.size
+          puts @address_book.entries[selection]
+          puts "Push enter to return to main menu"
+          gets.chomp
+          system "clear"
+        elsif selection > @address_book.entries.size
+          puts "Entry was not found, please try again"
         end
+        view_by_num
     end
     
     def create_entry
