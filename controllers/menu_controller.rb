@@ -71,7 +71,7 @@ class MenuController
             else
               puts x.to_s
             end
-            entry_submenu(entry)
+            view_by_num
         end
     end
     
