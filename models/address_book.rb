@@ -19,9 +19,9 @@ class AddressBook
     end
     
     def remove_entry(name, phone_number, email)
-        @entries.each_with_index do |entry, index|
+        @entries.each do |entry|
             if (name == entry.name) && (phone_number == entry.phone_number) && (email == entry.email)
-                index.delete
+                @entries.delete(entry)
             end
         end
     end
